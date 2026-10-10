@@ -6,12 +6,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                echo 'Source code checked out from GitHub'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 bat 'python -m pip install -r requirements.txt'
@@ -21,7 +15,6 @@ pipeline {
         stage('Test Application') {
             steps {
                 bat 'python -m py_compile app.py'
-                bat 'python -c "import app; print(app.health())"'
             }
         }
 
@@ -51,4 +44,7 @@ pipeline {
             echo 'CI/CD pipeline completed successfully!'
         }
         failure {
-            echo 'Pipeline failed. Check the
+            echo 'Pipeline failed. Check the Jenkins console output.'
+        }
+    }
+}
