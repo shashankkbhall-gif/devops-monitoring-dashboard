@@ -3,18 +3,19 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'geethask/devops-monitoring-dashboard'
+        PYTHON = 'C:\\Users\\DELL\\AppData\\Local\\Programs\\Python\\Python314\\python.exe'
     }
 
     stages {
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat '"%PYTHON%" -m pip install -r requirements.txt'
             }
         }
 
         stage('Test Application') {
             steps {
-                bat 'python -m py_compile app.py'
+                bat '"%PYTHON%" -m py_compile app.py'
             }
         }
 
