@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'shashankshashank123/devops-monitoring-dashboard'
+        DOCKER_IMAGE = 'geethask/devops-monitoring-dashboard'
     }
 
     stages {
